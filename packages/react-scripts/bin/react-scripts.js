@@ -28,6 +28,7 @@ switch (script) {
   case 'build':
   case 'eject':
   case 'start':
+  case 'circular-dependencies': // @ackee/react-scripts
   case 'test': {
     const result = spawn.sync(
       'node',
