@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![ackee|@ackee/react-scripts](https://img.ack.ee/ackee/image/github/js)
 
-## Available Scripts
+# [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/AckeeCZ/create-react-app/blob/master/LICENSE) [![CI Status](https://img.shields.io/travis/com/AckeeCZ/create-react-app.svg?style=flat)](https://travis-ci.com/AckeeCZ/create-react-app) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request) [![Coverage Status](https://img.shields.io/coveralls/github/AckeeCZ/create-react-app.svg?style=flat-square)](https://coveralls.io/github/AckeeCZ/create-react-app?branch=master) [![Dependency Status](https://img.shields.io/david/AckeeCZ/create-react-app.svg?style=flat-square)](https://david-dm.org/AckeeCZ/create-react-app)
 
-In the project directory, you can run:
+# @ackee/react-scripts
 
-### `npm start`
+This package includes scripts and configuration used by [Create React App](https://github.com/facebook/create-react-app).<br>
+Please refer to its documentation:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Getting Started](https://facebook.github.io/create-react-app/docs/getting-started) – How to create a new app.
+- [User Guide](https://facebook.github.io/create-react-app/) – How to develop apps bootstrapped with Create React App.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## How to use
 
-### `npm test`
+**To create a new project**, run the following command. Don't forget to replace `my-app` with your project name.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npx create-react-app my-app --scripts-version @ackee/react-scripts
+```
 
-### `npm run build`
+Notes
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The default react-scripts are replaced with the custom ones by adding `--scripts-version @ackee/react-scripts`.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Read, how to efficiently develop the `react-scripts` package and how to locally build a new skeleton from the latest template.
 
-### `npm run eject`
+### Testing react-scripts
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If you are working outside of the `template` scope, use `yarn link` or `npm link`. Read more about `yarn link` [here](https://yarnpkg.com/lang/en/docs/cli/link/).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Testing new template
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+You can run `create-react-app` with local react-scripts as follow:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+npx create-react-app my-test-app --scripts-version file:./create-react-app/packages/react-scripts;
+```
 
-## Learn More
+Or you can just run a small script: `bash ./create-test-react-app.sh`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+#!/usr/bin/env bash
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# delete old data
+rm -rf ./my-test-app;
 
-### Code Splitting
+# build skeleton with the latest local version of your react-scripts
+npx create-react-app my-test-app --scripts-version file:./create-react-app/packages/react-scripts;
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+> ## Save your time, read this:
+>
+> Make sure that `node_modules` aren't included in the `react-scripts` directory when running the script above. Otherwise, weird issues may occur!
 
-### Analyzing the Bundle Size
+### Upgrading (rebasing) to a new Create React App version
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[TODO]
