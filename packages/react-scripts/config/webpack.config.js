@@ -37,6 +37,9 @@ const eslint = require('eslint');
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
 // @remove-on-eject-end
 const postcssNormalize = require('postcss-normalize');
+// @ackee/react-scripts - beginning
+const transformWebpackConfig = require('../custom/scripts/transform/webpackConfig.js');
+// @ackee/react-scripts - end
 
 const appPackageJson = require(paths.appPackageJson);
 
@@ -61,7 +64,7 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
-module.exports = function(webpackEnv) {
+function createWebpackConfig(webpackEnv) {
   const isEnvDevelopment = webpackEnv === 'development';
   const isEnvProduction = webpackEnv === 'production';
 
@@ -736,4 +739,11 @@ module.exports = function(webpackEnv) {
     // our own hints via the FileSizeReporter
     performance: false,
   };
+}
+// @ackee/react-scripts - beginning
+module.exports = function(webpackEnv) {
+  const defaultConfig = createWebpackConfig(webpackEnv);
+
+  return transformWebpackConfig(defaultConfig, webpackEnv);
 };
+// @ackee/react-scripts - end
