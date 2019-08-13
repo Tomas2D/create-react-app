@@ -103,6 +103,6 @@
   },
   "scripts": {
     "postversion": "node custom/scripts/postVersion",
-    "preinstall": "node custom/init"
+    "postinstall": "node custom/init"
   }
 }
