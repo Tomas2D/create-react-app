@@ -92,7 +92,6 @@ module.exports = {
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
   // @ackee/react-scripts - beginning
-  prettierConfig: resolveApp('prettier.config.js'),
   appConfig: resolveApp('config/custom'),
   webpackConfig: resolveApp('config/webpack.config.js'),
   appWebpackConfig: resolveApp('config/transformWebpackConfig.js'),
@@ -134,7 +133,6 @@ module.exports = {
 
   // @ackee/react-scripts - beginning
   webpackConfig: resolveOwn('config/webpack.config.js'),
-  prettierConfig: resolveOwn('template/prettier.config.js'),
   templateSrc: resolveOwn('template/src'),
   // @ackee/react-scripts - end
 };
@@ -169,7 +167,6 @@ if (
     servedPath: getServedPath(resolveOwn('package.json')),
 
     // @ackee/react-scripts - beginning
-    prettierConfig: resolveOwn('template/prettier.config.js'),
     appConfig: resolveOwn('template/config'),
     appWebpackConfig: resolveOwn('config/transformWebpackConfig.js'),
     // @ackee/react-scripts - end
