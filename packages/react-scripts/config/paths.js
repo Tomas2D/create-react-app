@@ -91,11 +91,6 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
-  // @ackee/react-scripts - beginning
-  appConfig: resolveApp('config/custom'),
-  webpackConfig: resolveApp('config/webpack.config.js'),
-  appWebpackConfig: resolveApp('config/transformWebpackConfig.js'),
-  // @ackee/react-scripts - end
 };
 
 // @remove-on-eject-beginning
@@ -120,20 +115,11 @@ module.exports = {
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
 
-  // @ackee/react-scripts - beginning
-  appConfig: resolveApp('config'),
-  appWebpackConfig: resolveApp('config/transformWebpackConfig.js'),
-  // @ackee/react-scripts - end
-
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
   appTypeDeclarations: resolveApp('src/react-app-env.d.ts'),
   ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
-
-  // @ackee/react-scripts - beginning
-  webpackConfig: resolveOwn('config/webpack.config.js'),
-  // @ackee/react-scripts - end
 };
 
 const ownPackageJson = require('../package.json');
@@ -165,20 +151,11 @@ if (
     publicUrl: getPublicUrl(resolveOwn('package.json')),
     servedPath: getServedPath(resolveOwn('package.json')),
 
-    // @ackee/react-scripts - beginning
-    appConfig: resolveOwn('template/config'),
-    appWebpackConfig: resolveOwn('config/transformWebpackConfig.js'),
-    // @ackee/react-scripts - end
-
     // These properties only exist before ejecting:
     ownPath: resolveOwn('.'),
     ownNodeModules: resolveOwn('node_modules'),
     appTypeDeclarations: resolveOwn('template/src/react-app-env.d.ts'),
     ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
-
-    // @ackee/react-scripts - beginning
-    webpackConfig: resolveOwn('config/webpack.config.js'),
-    // @ackee/react-scripts - end
   };
 }
 // @remove-on-eject-end
