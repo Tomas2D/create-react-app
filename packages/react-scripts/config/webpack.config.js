@@ -576,7 +576,6 @@ function createWebpackConfig(webpackEnv) {
                 {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
-                  exportOnlyLocals: true,
                 },
                 'less-loader',
                 {
