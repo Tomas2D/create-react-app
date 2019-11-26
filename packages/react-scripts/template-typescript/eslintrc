@@ -1,0 +1,14 @@
+{
+    "extends": ["react-app", "@ackee/eslint-config", "prettier"],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            }
+        }
+    },
+    "rules": {
+        "no-restricted-globals": "off"
+    },
+    "plugins": ["cypress"]
+}

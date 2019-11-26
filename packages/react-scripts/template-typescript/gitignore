@@ -17,7 +17,15 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.vscode
+.idea
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.yalc
+yalc.lock
+
+# localization files are generated, it's not source thus don't version them
+src/translations/*.json
