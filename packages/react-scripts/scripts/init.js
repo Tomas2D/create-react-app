@@ -118,13 +118,8 @@ module.exports = async function(
   appPackage.browserslist = defaultBrowsers;
 
   // @ackee/react-scripts - beginning
-  await modifyTemplatePackageJson(ownPath, appPackage);
+  await modifyTemplatePackageJson(ownPath, appPackage, useTypeScript);
   // @ackee/react-scripts - end
-
-  fs.writeFileSync(
-    path.join(appPath, 'package.json'),
-    JSON.stringify(appPackage, null, 2) + os.EOL
-  );
 
   const readmeExists = fs.existsSync(path.join(appPath, 'README.md'));
   if (readmeExists) {
@@ -146,6 +141,16 @@ module.exports = async function(
     );
     return;
   }
+
+  // @ackee/react-scripts - beginning
+  // NOTE: Move creating package.json after fs.copySync(templatePath, appPath);
+  // Otherwise it gets overwritten.
+  // It wouldn't be issue if there hasn't been a custom package.json.
+  fs.writeFileSync(
+    path.join(appPath, 'package.json'),
+    JSON.stringify(appPackage, null, 2) + os.EOL
+  );
+  // @ackee/react-scripts - end
 
   // modifies README.md commands based on user used package manager.
   if (useYarn) {
