@@ -6,6 +6,7 @@ const deleteObjectKeys = require('./utils/deleteObjectKeys');
 const authModulePrompt = require('./useAuthModule');
 const mergeDependencies = require('./mergeDependencies');
 const getPackage = require('./getPackage');
+const initPaths = require('../../config/initPaths');
 
 exports.installDependencies = require('./installDependencies');
 exports.renameEslintConfig = require('./renameEslintConfig');
@@ -23,7 +24,13 @@ exports.gitCommitAmend = () => {
   }
 };
 
-exports.modifyTemplatePackageJson = async (ownPath, appPackage) => {
+exports.modifyTemplatePackageJson = async (
+  ownPath,
+  appPackage,
+  useTypeScript
+) => {
+  initPaths(useTypeScript);
+
   const ownPackage = getPackage(ownPath);
 
   const excludeFromJsonPackage = await authModulePrompt(ownPath);

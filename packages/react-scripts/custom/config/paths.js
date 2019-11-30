@@ -36,6 +36,7 @@ Object.assign(paths, {
   customPackageJson: resolveReactScriptsRoot('custom/custom-package.json'),
   prettierConfig: resolveReactScriptsRoot('template/prettier.config.js'),
   templateSrc: resolveReactScriptsRoot('template/src'),
+  template: resolveReactScriptsRoot('template'),
   packageJson: resolveReactScriptsRoot('package.json'),
 
   webpackConfig: resolveReactScriptsRoot('config/webpack.config.js'),
