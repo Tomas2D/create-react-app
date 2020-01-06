@@ -24,9 +24,7 @@ const os = require('os');
 const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
 // @ackee/react-scripts - beginning
 const {
-  gitCommitAmend,
   modifyAppPackageJson,
-  installDependencies,
   renameEslintConfig,
 } = require('../custom/scripts/init');
 // @ackee/react-scripts - end
@@ -161,7 +159,7 @@ module.exports = async function(
   appPackage.browserslist = defaultBrowsers;
 
   // @ackee/react-scripts - beginning
-  await modifyAppPackageJson(appPackage, templateJson);
+  await modifyAppPackageJson({ appPackage, templateJson, templatePath });
   // @ackee/react-scripts - end
 
   fs.writeFileSync(
@@ -220,6 +218,10 @@ module.exports = async function(
       throw err;
     }
   }
+
+  // @ackee/react-scripts - beginning
+  await renameEslintConfig(appPath);
+  // @ackee/react-scripts - end
 
   let command;
   let remove;
@@ -280,25 +282,10 @@ module.exports = async function(
     return;
   }
 
-  // @ackee/react-scripts - beginning
-  const didGitInit = tryGitInit(appPath);
-  if (didGitInit) {
+  if (tryGitInit(appPath)) {
     console.log();
     console.log('Initialized a git repository.');
   }
-
-  await installDependencies(appPackage, {
-    useYarn,
-    verbose,
-  });
-
-  await renameEslintConfig();
-
-  if (didGitInit) {
-    // append changes to the last commit (the init commit) caused by installing postponed devDependencies
-    gitCommitAmend();
-  }
-  // @ackee/react-scripts - end
 
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
