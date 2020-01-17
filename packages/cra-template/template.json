@@ -65,7 +65,7 @@
       "prettier --config ./prettier.config.js --write",
       "git add"
     ],
-    "**/*.{png,jpeg,jpg,gif,svg}": [
+    "**/*.{png,jpeg,jpg,gif,svg,webp}": [
       "imagemin-lint-staged",
       "git add"
     ]
