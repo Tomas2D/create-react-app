@@ -8,7 +8,6 @@
     "@ackee/petrus": "4.0.0-beta.20",
     "@ackee/redux-utils": "2.x",
     "@sentry/browser": "5.x",
-    "antd": "3.x",
     "connected-react-router": "6.5.x",
     "fela": "11.x",
     "fela-monolithic": "11.x",

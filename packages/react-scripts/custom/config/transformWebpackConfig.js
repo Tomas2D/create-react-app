@@ -10,14 +10,6 @@ const removeMiniCSSExtractLoader = require('./utils/removeMiniCSSExtractLoader')
 const removeStyleLoader = require('./utils/removeStyleLoader');
 const removeMiniCSSExtractPlugin = require('./utils/removeMiniCSSExtractPlugin');
 
-const preloaders = [
-  {
-    loader: require.resolve('webpack-ant-icon-loader'),
-    enforce: 'pre',
-    include: [require.resolve('@ant-design/icons/lib/dist')],
-  },
-];
-
 // for template/src
 const getBabelPlugins = webpackEnv => {
   const isEnvProduction = webpackEnv === 'production';
@@ -28,12 +20,6 @@ const getBabelPlugins = webpackEnv => {
       {
         lodash: {
           transform: 'lodash/${member}',
-          preventFullImport: true,
-        },
-        antd: {
-          transform(importName) {
-            return `antd/es/${importName.toLowerCase()}`;
-          },
           preventFullImport: true,
         },
         recompose: {
@@ -67,8 +53,6 @@ const getNodeModulesBabelPlugins = webpackEnv => {
 };
 
 const transformRules = (rules, webpackEnv) => {
-  insertPreloaders(rules, preloaders);
-
   appendBabelPlugins(rules, getBabelPlugins(webpackEnv));
 
   appendBabelPlugins(
